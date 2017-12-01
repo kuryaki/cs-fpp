@@ -1,13 +1,15 @@
 package prob2;
 
-class Account {
+import prob2.employeeinfo.Employee;
+
+public class Account {
 
 	private final static double DEFAULT_BALANCE = 0.0;
 	private double balance;
 	private AccountType acctType;
 	private Employee employee;
 
-	Account(Employee emp, AccountType acctType, double balance) {
+	public Account(Employee emp, AccountType acctType, double balance) {
 		this.employee = emp;
 		this.acctType = acctType;
 		this.balance = balance;
@@ -22,11 +24,16 @@ class Account {
 	}
 
 	public void makeDeposit(double deposit) {
-		// implement
+		this.balance += deposit;
 	}
 
 	public boolean makeWithdrawal(double amount) {
-		// implement
+		
+		if (amount <= balance) {
+			this.balance -= amount;
+			return true;
+		}
+		
 		return false;
 	}
 

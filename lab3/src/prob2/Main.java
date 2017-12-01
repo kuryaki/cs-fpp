@@ -1,5 +1,9 @@
 package prob2;
 
+import java.util.Scanner;
+
+import prob2.employeeinfo.Employee;
+
 public class Main {
 
 	Employee[] emps = null;
@@ -22,7 +26,33 @@ public class Main {
 		emps[2].createNewChecking(10038);
 		emps[2].createNewSavings(12600);
 		emps[2].createNewRetirement(9000);
-
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("See a report of all account balances? (y/n) ");
+		String answer = sc.next();
+		
+		if(answer.equalsIgnoreCase("y")) {
+			String info = getFormattedAccountInfo();
+			System.out.println(info);
+		}  
+		else {    
+			
+		}    
+		
+	}
+	
+	String getFormattedAccountInfo() {
+		
+		String formattedAccInfo = "";
+		
+		for(Employee e: emps) {
+			formattedAccInfo += "ACCOUNT INFO FOR " + e.getName() + ": \n";
+			formattedAccInfo += e.getFormattedAcctInfo();
+			formattedAccInfo += "\n";
+		}
+		
+		return formattedAccInfo;
 	}
 
 }
