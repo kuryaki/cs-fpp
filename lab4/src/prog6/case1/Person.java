@@ -1,5 +1,6 @@
 package prog6.case1;
 
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Person {
@@ -33,7 +34,17 @@ public class Person {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		GregorianCalendar dob = new GregorianCalendar(1982, 9, 14);
+		
+		Person pe1 = new Person("George", dob);
+		Person pe2 = new PersonWithJob("George", dob, 5000);
+		
+//		System.out.println(pe1);
+//		System.out.println(pe2);
+		
+		System.out.println(pe1.equals(pe2));
+		System.out.println(pe2.equals(pe1));
 
 	}
 
