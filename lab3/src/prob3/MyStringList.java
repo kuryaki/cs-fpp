@@ -69,7 +69,7 @@ public class MyStringList {
 
 	private void resize() {
 
-		String[] newStrArray = new String[size * 2];
+		String[] newStrArray = new String[size + 2];
 
 		System.arraycopy(strArray, 0, newStrArray, 0, size);
 

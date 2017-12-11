@@ -4,17 +4,21 @@ public class MyTable {
 	Entry[] entries = new Entry[26];
 	
 	public void add(char c, String s){
-		//inserts the entry (c, s) into the table
-		//by computing proper array index for c
+		entries[c-'a'] = new Entry(c, s);
 	}
 	public String get(char c){
-		//returns the string in Entry table whose index
-		//corresponds to the char c
-		return null;
+		
+		return entries[c-'a'].s;
 	}
 	
 	public String toString() {
-		return "";
+		String log = "";
+		for(Entry e: entries) {
+			if (e != null) {
+				log += e.toString() + "\n";
+			}
+		}
+		return log;
 	}
 	
 
@@ -23,7 +27,10 @@ public class MyTable {
 		t.add('a', "Andrew");
 		t.add('b',"Billy");
 		t.add('w',"Willie");
-		//..System.out.println(t.get('b'));
+		
+//		String s = t.get('b'); 
+//		System.out.println(s);
+		
 		System.out.println(t);
 		
 	}
@@ -32,7 +39,14 @@ public class MyTable {
 		char c;
 		String s;
 
-		//implement
+		public Entry(char c, String s) {
+			this.c = c;
+			this.s = s;
+		}
+		
+		public String toString() {
+			return String.valueOf(c) + "->" + s;
+		}
 		
 		
 	}
