@@ -1,5 +1,7 @@
 package prob3;
 
+import java.util.Arrays;
+
 public class MyQueue {
 
 	private int[] arr = new int[2];
@@ -20,10 +22,13 @@ public class MyQueue {
 	}
 
 	private void enqueue(int i) {
+		if(front <= 0) front = 0;
 		if (size >= arr.length) {
-			int[] newArr = new int[size + 10];
-			System.out.println("Resizing.....");
-			System.arraycopy(arr, front, newArr, 0, size);
+			int[] newArr = new int[arr.length + 10];
+			System.out.println("Resizing..... " + Arrays.toString(arr) + " - " + size);
+			System.out.println("front:" + front);
+			System.out.println("rear:" + rear);
+			System.arraycopy(arr, front, newArr, 0, arr.length);
 			front = 0;
 			arr = newArr;
 		}
